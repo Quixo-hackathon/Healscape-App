@@ -18,19 +18,19 @@ const exercises = [
     id: 'tennis-ball-rolls',
     title: "Tennis ball rolls",
     tag: "Low Pain",
-    image: "/recovery-image.svg",
+    image: "/leg.png",
   },
   {
     id: 'towel-neck-pulls',
     title: "Towel neck pulls",
     tag: "Neck Pain",
-    image: "/recovery-image.svg",
+    image: "/towel.png",
   },
   {
     id: 'chair-twists',
     title: "Chair Twists",
     tag: "Back Ache",
-    image: "/recovery-image.svg",
+    image: "chair.png",
   },
   {
     id: 'wall-stretches',
