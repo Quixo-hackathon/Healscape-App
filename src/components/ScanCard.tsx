@@ -1,7 +1,7 @@
 
-import { Camera, Scan, ChevronRight } from "lucide-react";
+import { Camera, Scan, ChevronRight, VideoOff, Video } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface ScanCardProps {
   isChildMode: boolean;
@@ -11,6 +11,41 @@ interface ScanCardProps {
 const ScanCard = ({ isChildMode, onScanClick }: ScanCardProps) => {
   const [sliderValue, setSliderValue] = useState([0]);
   const [isCompleting, setIsCompleting] = useState(false);
+  const [isCameraActive, setIsCameraActive] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  const startCamera = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        streamRef.current = stream;
+        setIsCameraActive(true);
+      }
+    } catch (err) {
+      console.error("Error accessing camera: ", err);
+      setIsCameraActive(false);
+    }
+  };
+
+  const stopCamera = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
+    }
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
+    setIsCameraActive(false);
+  };
+
+  useEffect(() => {
+    // Cleanup camera on component unmount
+    return () => {
+      stopCamera();
+    };
+  }, []);
 
   const handleSliderChange = (value: number[]) => {
     setSliderValue(value);
@@ -20,6 +55,7 @@ const ScanCard = ({ isChildMode, onScanClick }: ScanCardProps) => {
         onScanClick();
         setSliderValue([0]);
         setIsCompleting(false);
+        stopCamera(); // Stop camera after scan starts
       }, 300);
     }
   };
@@ -27,11 +63,15 @@ const ScanCard = ({ isChildMode, onScanClick }: ScanCardProps) => {
   return (
     <div className="px-4 mb-8 mt-8">
       <div className="bg-white rounded-3xl p-6 soft-shadow card-hover relative"> {/* Added relative positioning */} 
-        <div className="absolute inset-0 flex items-center justify-center opacity-10"> {/* Camera icon in background */} 
-          <Camera size={96} className="text-healscape-gray-light" />
-        </div>
-        <div className="flex flex-col items-center gap-4"> {/* Changed to flex-col */} 
-          {/* Removed camera placeholder div */}
+        {isCameraActive ? (
+          <video ref={videoRef} autoPlay playsInline className="absolute inset-0 w-full h-full object-cover rounded-3xl"></video>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center opacity-10"> {/* Camera icon in background */} 
+            <Camera size={96} className="text-healscape-gray-light" />
+          </div>
+        )}
+        
+        <div className="flex flex-col items-center gap-4 relative z-10"> {/* Changed to flex-col, added relative z-10 */} 
           <div className="w-full"> {/* Changed to w-full to make it take full width */} 
             <h2 className="text-xl font-semibold text-healscape-text-primary mb-2">
               {isChildMode 
@@ -115,8 +155,12 @@ const ScanCard = ({ isChildMode, onScanClick }: ScanCardProps) => {
               )}
             </div>
           </div>
-          
-          {/* Removed the camera placeholder div from here */}
+          <button 
+            onClick={isCameraActive ? stopCamera : startCamera}
+            className="mt-4 p-2 rounded-full bg-healscape-green text-white flex items-center justify-center"
+          >
+            {isCameraActive ? <VideoOff size={24} /> : <Video size={24} />}
+          </button>
         </div>
       </div>
     </div>
