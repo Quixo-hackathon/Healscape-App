@@ -1,6 +1,6 @@
-![HEALSCAPE]([https://raw.githubusercontent.com/username/repo/branch/path/to/image.png](https://raw.githubusercontent.com/Quixo-hackathon/Healscape-App/refs/heads/main/HealScape%20Thumbnail.png))
+![HEALSCAPE](https://raw.githubusercontent.com/username/repo/branch/path/to/image.png)
 
-![Healscape Entity](https://github.com/user-attachments/assets/14ccd2e5-a0b9-4b68-8461-9de2d0c71fa0) # HealScape App!
+[Healscape Entity](https://github.com/user-attachments/assets/14ccd2e5-a0b9-4b68-8461-9de2d0c71fa0) # HealScape App!
 
 
 **Tagline:** _Your Home, Your Health Ally_
