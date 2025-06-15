@@ -51,7 +51,7 @@ HealScape App is a smart health and wellness application that empowers individua
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/healscape-app.git
+git clone https://github.com/Quixo-hackathon/Healscape-App.git
 cd healscape-app
 npm install
 
