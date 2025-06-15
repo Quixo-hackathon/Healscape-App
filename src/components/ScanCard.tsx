@@ -26,9 +26,13 @@ const ScanCard = ({ isChildMode, onScanClick }: ScanCardProps) => {
 
   return (
     <div className="px-4 mb-8 mt-8">
-      <div className="bg-white rounded-3xl p-6 soft-shadow card-hover">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex-1 min-w-0">
+      <div className="bg-white rounded-3xl p-6 soft-shadow card-hover relative"> {/* Added relative positioning */} 
+        <div className="absolute inset-0 flex items-center justify-center opacity-10"> {/* Camera icon in background */} 
+          <Camera size={96} className="text-healscape-gray-light" />
+        </div>
+        <div className="flex flex-col items-center gap-4"> {/* Changed to flex-col */} 
+          {/* Removed camera placeholder div */}
+          <div className="w-full"> {/* Changed to w-full to make it take full width */} 
             <h2 className="text-xl font-semibold text-healscape-text-primary mb-2">
               {isChildMode 
                 ? "Let's discover what your medicine does!" 
@@ -112,9 +116,7 @@ const ScanCard = ({ isChildMode, onScanClick }: ScanCardProps) => {
             </div>
           </div>
           
-          <div className="w-24 h-24 bg-gradient-to-br from-healscape-gray-light to-healscape-gray-medium rounded-2xl flex items-center justify-center flex-shrink-0">
-            <Camera size={32} className="text-healscape-text-secondary" />
-          </div>
+          {/* Removed the camera placeholder div from here */}
         </div>
       </div>
     </div>

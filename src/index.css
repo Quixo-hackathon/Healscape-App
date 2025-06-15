@@ -11,7 +11,7 @@
   :root {
     /* HealScape Custom Colors */
     --healscape-teal: #3CAEA3;
-    --healscape-coral: #4ADE80;
+    --healscape-coral: #3CB371;
     --healscape-off-white: #F5F8F7;
     --healscape-soft-white: #FFFFFF;
     --healscape-gray-light: #E8F0EF;
@@ -47,8 +47,8 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-nunito;
+  html, body {
+    @apply bg-healscape-off-white text-foreground font-nunito;
     font-family: 'Nunito', sans-serif;
   }
 }

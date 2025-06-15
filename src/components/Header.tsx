@@ -33,7 +33,7 @@ const Header = ({
                 Hi <span className="font-bold mx-1">{userName}</span>
               </span>
             ) : (
-              <span className="bg-gradient-to-r from-healscape-teal to-healscape-coral bg-clip-text text-transparent">HealScape</span>
+              <img src="/healscape-logo.png" alt="HealScape Logo" className="h-8 w-8" />
             )}
           </h1>
         </Link>
