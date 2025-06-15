@@ -31,6 +31,7 @@ export default {
 					'gray-medium': '#B8CDC8',
 					'text-primary': '#2A4A47',
 					'text-secondary': '#5A7B75',
+					'light-green': '#AFE1AF',
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

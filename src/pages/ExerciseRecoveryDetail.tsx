@@ -336,14 +336,18 @@ const ExerciseRecoveryDetail = () => {
 
         {/* Action Buttons */}
         <div className="grid grid-cols-2 gap-4 pt-4">
-          <Button variant="outline" className="border-healscape-teal text-healscape-teal">
-            <Bell size={16} className="mr-2" />
-            Set Reminder
-          </Button>
-          <Button variant="outline" className="border-healscape-teal text-healscape-teal">
-            <Home size={16} className="mr-2" />
-            Change Exercise
-          </Button>
+            <Button className="w-full bg-healscape-yellow text-healscape-text-primary hover:bg-healscape-yellow/90">
+               <span className="rounded-full p-2 bg-black/10 mr-2">
+                 <Bell size={20} />
+               </span>
+               <span>Set Reminder</span>
+            </Button>
+            <Button className="w-full bg-healscape-yellow text-healscape-text-primary border border-healscape-light-green hover:bg-healscape-yellow/90">
+               <span className="rounded-full p-2 bg-black/10 mr-2">
+                 <Target size={20} />
+               </span>
+               <span>Change Exercise</span>
+            </Button>
         </div>
       </div>
 
