@@ -1,5 +1,5 @@
 
-import { User, LogOut } from "lucide-react";
+import { User, LogOut, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -93,9 +93,9 @@ const Header = ({
                 Sign in
               </Button>
             </Link>
-            <Link to="/signup">
-              <Button className="bg-healscape-teal hover:bg-healscape-teal/90 text-white shadow-sm hover:shadow transition-all transform hover:translate-y-[-1px] active:translate-y-[1px]">
-                Sign up
+            <Link to="/about">
+              <Button className="bg-healscape-teal hover:bg-healscape-teal/90 text-white shadow-sm hover:shadow transition-all transform hover:translate-y-[-1px] active:translate-y-[1px] p-2 rounded-full w-10 h-10 flex items-center justify-center border-none">
+                <Info size={20} />
               </Button>
             </Link>
           </div>

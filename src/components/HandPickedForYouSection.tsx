@@ -1,5 +1,6 @@
 
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -59,7 +60,7 @@ const HandPickedForYouSection = ({ onItemClick }: HandPickedForYouSectionProps) 
                     <p className="text-xs font-semibold uppercase tracking-wider text-healscape-gray-medium mb-2">{workout.duration}</p>
                     <h3 className="text-lg font-bold text-healscape-text-primary mb-1 leading-tight">{workout.title}</h3>
                     <p className="text-sm text-healscape-text-secondary mb-4">{workout.subtitle}</p>
-                    <Button className="w-full bg-healscape-teal hover:bg-healscape-teal/90 text-white font-bold py-3 rounded-xl" onClick={() => onItemClick(workout.id)}>Join</Button>
+                    <Link to={`/exercise/${workout.id}`} className="w-full bg-healscape-teal hover:bg-healscape-teal/90 text-white font-bold py-3 rounded-xl text-center inline-block">Join</Link>
                   </div>
                 </CardContent>
               </Card>

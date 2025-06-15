@@ -1,6 +1,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 interface BlogSectionProps {
   isChildMode: boolean;
@@ -59,7 +60,8 @@ const BlogSection = ({ isChildMode }: BlogSectionProps) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {posts.map((post) => (
-          <Card key={post.id} className="overflow-hidden card-hover border-none soft-shadow bg-white rounded-2xl">
+          <Link to={`/blog/${post.id}`} key={post.id}>
+            <Card className="overflow-hidden card-hover border-none soft-shadow bg-white rounded-2xl">
             <CardContent className="p-0">
               <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
               <div className="p-6">
@@ -69,7 +71,8 @@ const BlogSection = ({ isChildMode }: BlogSectionProps) => {
                 <span className="text-xs text-healscape-gray-medium">{post.readTime}</span>
               </div>
             </CardContent>
-          </Card>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>

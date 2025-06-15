@@ -82,7 +82,7 @@ const Signup = () => {
               </div>
             </div>
             <CardTitle className="text-2xl font-bold text-healscape-text-primary text-center">Create an account</CardTitle>
-            <CardDescription className="text-center">Join HealScape to start your wellness journey</CardDescription>
+            <CardDescription className="text-center text-healscape-text-primary">Join HealScape to start your wellness journey</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">

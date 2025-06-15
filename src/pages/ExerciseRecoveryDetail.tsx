@@ -100,6 +100,54 @@ const exerciseData: Record<string, Exercise> = {
       { id: 3, title: 'Wall Slide Exercise', duration: '5 mins', status: 'locked', description: 'Improve posture alignment' },
       { id: 4, title: 'Full Body Integration', duration: '6 mins', status: 'locked', description: 'Complete wall routine' }
     ]
+  },
+  'wall-pilates-1': {
+    id: 'wall-pilates-1',
+    title: 'Wall Pilates: Core Strength',
+    object: 'Wall',
+    bodyPart: 'Core',
+    icon: '🧘‍♀️',
+    completedSessions: 0,
+    totalSessions: 3,
+    painReduction: 0,
+    weeklyStreak: 0,
+    sessions: [
+      { id: 1, title: 'Introduction to Wall Pilates', duration: '10 mins', status: 'current', description: 'Learn the basics of wall pilates for core engagement.' },
+      { id: 2, title: 'Wall Crunches & Leg Lifts', duration: '15 mins', status: 'locked', description: 'Strengthen your core with wall-assisted exercises.' },
+      { id: 3, title: 'Advanced Wall Core Flow', duration: '20 mins', status: 'locked', description: 'Challenge your core with a dynamic wall pilates sequence.' }
+    ]
+  },
+  'wall-pilates-2': {
+    id: 'wall-pilates-2',
+    title: 'Wall Pilates: Back Pain Relief',
+    object: 'Wall',
+    bodyPart: 'Back',
+    icon: '🧘‍♀️',
+    completedSessions: 0,
+    totalSessions: 3,
+    painReduction: 0,
+    weeklyStreak: 0,
+    sessions: [
+      { id: 1, title: 'Gentle Wall Stretches for Back', duration: '10 mins', status: 'current', description: 'Relieve tension with gentle wall stretches.' },
+      { id: 2, title: 'Spinal Mobility with Wall', duration: '15 mins', status: 'locked', description: 'Improve spinal flexibility and reduce stiffness.' },
+      { id: 3, title: 'Full Back Release Flow', duration: '20 mins', status: 'locked', description: 'A complete routine for lasting back pain relief.' }
+    ]
+  },
+  'wall-pilates-3': {
+    id: 'wall-pilates-3',
+    title: 'Wall Pilates: Flexibility & Balance',
+    object: 'Wall',
+    bodyPart: 'Full Body',
+    icon: '🧘‍♀️',
+    completedSessions: 0,
+    totalSessions: 3,
+    painReduction: 0,
+    weeklyStreak: 0,
+    sessions: [
+      { id: 1, title: 'Wall-Assisted Flexibility Basics', duration: '10 mins', status: 'current', description: 'Enhance your flexibility with wall support.' },
+      { id: 2, title: 'Balance Challenges at the Wall', duration: '15 mins', status: 'locked', description: 'Improve your balance and stability.' },
+      { id: 3, title: 'Integrated Wall Flow for Balance', duration: '20 mins', status: 'locked', description: 'A comprehensive routine for flexibility and balance.' }
+    ]
   }
 };
 

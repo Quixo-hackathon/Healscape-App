@@ -1,6 +1,7 @@
 
 import { Play, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface SuggestedItem {
   id: string;
@@ -131,18 +132,13 @@ const SuggestedSection = ({ isChildMode, onItemClick }: SuggestedSectionProps) =
                 </span>
               </div>
               
-              <Button 
-                onClick={() => onItemClick(item.id)}
-                size="sm"
-                className={`rounded-xl px-4 py-2 font-medium ${
-                  isChildMode 
-                    ? "bg-healscape-coral hover:bg-healscape-coral/90" 
-                    : "bg-healscape-teal hover:bg-healscape-teal/90"
-                }`}
+              <Link 
+                to={`/exercise/${item.id}`}
+                className={`inline-flex items-center justify-center whitespace-nowrap rounded-xl px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ${isChildMode ? "bg-healscape-coral hover:bg-healscape-coral/90" : "bg-healscape-teal hover:bg-healscape-teal/90"}`}
               >
                 <Play size={14} className="mr-2" />
                 {isChildMode ? "Listen" : "Start"}
-              </Button>
+              </Link>
             </div>
           </div>
         ))}

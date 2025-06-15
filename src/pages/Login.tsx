@@ -68,7 +68,7 @@ const Login = () => {
               </div>
             </div>
             <CardTitle className="text-2xl font-bold text-healscape-text-primary text-center">Welcome back</CardTitle>
-            <CardDescription className="text-center">Sign in to your HealScape account</CardDescription>
+            <CardDescription className="text-center text-healscape-text-primary">Sign in to your HealScape account</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
