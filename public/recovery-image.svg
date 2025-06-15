@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <!-- Background with soft gradient -->
+  <rect width="1200" height="800" rx="8" fill="url(#recoveryGradient)" />
+  
+  <!-- Decorative elements -->
+  <path d="M0 200 Q 300 300, 600 200 T 1200 200" stroke="#FFFFFF" stroke-width="8" stroke-opacity="0.2" fill="none" />
+  <path d="M0 250 Q 300 350, 600 250 T 1200 250" stroke="#FFFFFF" stroke-width="6" stroke-opacity="0.15" fill="none" />
+  <path d="M0 300 Q 300 400, 600 300 T 1200 300" stroke="#FFFFFF" stroke-width="4" stroke-opacity="0.1" fill="none" />
+  
+  <!-- Recovery icon - Relaxed person stretching -->
+  <g transform="translate(600, 400)">
+    <!-- Person silhouette in stretching pose -->
+    <circle cx="-50" cy="-100" r="40" fill="#FFFFFF" />
+    <path d="M-50 -60 L-50 50 Q 0 100, 100 50" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-50 0 L-100 80" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Relaxation elements -->
+    <path d="M-150 -120 Q -120 -150, -90 -120 Q -60 -90, -30 -120 Q 0 -150, 30 -120" stroke="#FFFFFF" stroke-width="6" stroke-opacity="0.6" fill="none" />
+    <path d="M50 -140 Q 80 -170, 110 -140 Q 140 -110, 170 -140" stroke="#FFFFFF" stroke-width="6" stroke-opacity="0.6" fill="none" />
+  </g>
+  
+  <!-- Small decorative circles representing relief/comfort -->
+  <circle cx="300" cy="200" r="20" fill="#FFFFFF" opacity="0.2" />
+  <circle cx="900" cy="600" r="30" fill="#FFFFFF" opacity="0.2" />
+  <circle cx="1000" cy="200" r="15" fill="#FFFFFF" opacity="0.2" />
+  <circle cx="200" cy="600" r="25" fill="#FFFFFF" opacity="0.2" />
+  <circle cx="700" cy="300" r="18" fill="#FFFFFF" opacity="0.2" />
+  <circle cx="500" cy="650" r="22" fill="#FFFFFF" opacity="0.2" />
+  
+  <!-- Gradients definition -->
+  <defs>
+    <linearGradient id="recoveryGradient" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3CAEA3" />
+      <stop offset="100%" stop-color="#2E7D32" />
+    </linearGradient>
+  </defs>
+</svg>

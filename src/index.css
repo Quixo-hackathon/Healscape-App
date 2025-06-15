@@ -1,0 +1,105 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HealScape Design System */
+
+@layer base {
+  :root {
+    /* HealScape Custom Colors */
+    --healscape-teal: #3CAEA3;
+    --healscape-coral: #4ADE80;
+    --healscape-off-white: #F5F8F7;
+    --healscape-soft-white: #FFFFFF;
+    --healscape-gray-light: #E8F0EF;
+    --healscape-gray-medium: #B8CDC8;
+    --healscape-text-primary: #2A4A47;
+    --healscape-text-secondary: #5A7B75;
+    
+    --background: 245 248 247;
+    --foreground: 42 74 71;
+    --card: 255 255 255;
+    --card-foreground: 42 74 71;
+    --popover: 255 255 255;
+    --popover-foreground: 42 74 71;
+    --primary: 60 174 163;
+    --primary-foreground: 255 255 255;
+    --secondary: 232 240 239;
+    --secondary-foreground: 42 74 71;
+    --muted: 232 240 239;
+    --muted-foreground: 90 123 117;
+    --accent: 74 222 128;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 232 240 239;
+    --input: 232 240 239;
+    --ring: 60 174 163;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-nunito;
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+/* Custom HealScape Styles */
+.soft-shadow {
+  box-shadow: 0 8px 32px rgba(60, 174, 163, 0.1);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(60, 174, 163, 0.15);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #F5F8F7 0%, #E8F0EF 100%);
+}
+
+.scan-glow {
+  animation: scan-pulse 2s infinite;
+}
+
+@keyframes scan-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(60, 174, 163, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(60, 174, 163, 0.6);
+  }
+}
+
+/* Enhanced slide-to-start animations */
+@keyframes slide-success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+.slide-success {
+  animation: slide-success 0.3s ease-out;
+}
+
+.sparkle-animation {
+  animation: sparkle 1s ease-in-out infinite;
+}
