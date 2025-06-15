@@ -29,12 +29,12 @@ HealScape App is a smart health and wellness application that empowers individua
 
 ## 📱 Tech Stack
 
-Vite
-TypeScript
-React
-shadcn-ui
-Tailwind CSS
-Supabase
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+- Supabase
 
 
 ---
