@@ -1,4 +1,5 @@
-# HealScape App 🏃‍♀️🧠💊
+[Healscape Entity](https://github.com/user-attachments/assets/14ccd2e5-a0b9-4b68-8461-9de2d0c71fa0) # HealScape App!
+
 
 **Tagline:** _Your Home, Your Health Ally_
 
@@ -28,9 +29,13 @@ HealScape App is a smart health and wellness application that empowers individua
 
 ## 📱 Tech Stack
 
-- **Frontend:** React Native *(customizable)*
-- **Backend:** Node.js
-- **Database:** Supabase
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+- Supabase
+
 
 ---
 
