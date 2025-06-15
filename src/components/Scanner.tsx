@@ -1,6 +1,6 @@
 
-import { useState, useEffect } from "react";
-import { Camera, CheckCircle, ArrowLeft } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { CheckCircle, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ScannerProps {
@@ -13,6 +13,8 @@ const Scanner = ({ isChildMode, onBack, onScanComplete }: ScannerProps) => {
   const [isScanning, setIsScanning] = useState(false);
   const [detectedItems, setDetectedItems] = useState<string[]>([]);
   const [scanProgress, setScanProgress] = useState(0);
+  const [facingMode, setFacingMode] = useState<'user' | 'environment'>('environment'); // 'user' for front camera, 'environment' for back camera
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const adultObjects = ["Chair", "Water Bottle", "Pillow", "Wall", "Table"];
   const childObjects = ["Medicine Bottle", "Vitamin Gummies", "Cough Syrup", "Band-Aid", "Thermometer"];
@@ -34,8 +36,38 @@ const Scanner = ({ isChildMode, onBack, onScanComplete }: ScannerProps) => {
       }, 200);
 
       return () => clearInterval(interval);
+    } else {
+      if (videoRef.current && videoRef.current.srcObject) {
+        (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
+        videoRef.current.srcObject = null;
+      }
     }
   }, [isScanning, objectsToDetect]);
+
+  const startCamera = async (mode: 'user' | 'environment') => {
+    if (videoRef.current && videoRef.current.srcObject) {
+      (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: mode } });
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+    } catch (err) {
+      console.error("Error accessing camera: ", err);
+      // Optionally, show an error message to the user
+    }
+  };
+
+  useEffect(() => {
+    startCamera(facingMode);
+
+    return () => {
+      if (videoRef.current && videoRef.current.srcObject) {
+        (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
+      }
+    };
+  }, [facingMode]);
 
   const handleStartScan = () => {
     setIsScanning(true);
@@ -63,7 +95,13 @@ const Scanner = ({ isChildMode, onBack, onScanComplete }: ScannerProps) => {
           <h1 className="text-xl font-semibold text-healscape-text-primary">
             {isChildMode ? "Medicine Scanner" : "Environment Scanner"}
           </h1>
-          <div className="w-8" />
+          <Button
+            variant="ghost"
+            onClick={() => setFacingMode(prev => (prev === 'user' ? 'environment' : 'user'))}
+            className="p-2 rounded-full hover:bg-white/50"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.76 2.75L3 12Z"/><path d="M2.9 7c9 0 11 4 11 4L2.9 7Z"/></svg>
+          </Button>
         </div>
 
         <div className="bg-white rounded-3xl p-6 soft-shadow mb-6">
@@ -85,9 +123,7 @@ const Scanner = ({ isChildMode, onBack, onScanComplete }: ScannerProps) => {
           <div className={`relative w-full h-64 bg-gradient-to-br from-healscape-gray-light to-healscape-gray-medium rounded-2xl overflow-hidden ${
             isScanning ? "scan-glow" : ""
           }`}>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Camera size={48} className="text-healscape-text-secondary" />
-            </div>
+            <video ref={videoRef} autoPlay playsInline className="absolute inset-0 w-full h-full object-cover rounded-2xl"></video>
             
             {isScanning && (
               <div className="absolute bottom-4 left-4 right-4">
@@ -130,8 +166,8 @@ const Scanner = ({ isChildMode, onBack, onScanComplete }: ScannerProps) => {
                     : "bg-healscape-teal hover:bg-healscape-teal/90"
                 }`}
               >
-                <Camera size={18} className="mr-2" />
-                Start Scanning
+
+                <span className="text-white">Start Scanning</span>
               </Button>
             )}
 
@@ -144,8 +180,8 @@ const Scanner = ({ isChildMode, onBack, onScanComplete }: ScannerProps) => {
                     : "bg-healscape-teal hover:bg-healscape-teal/90"
                 }`}
               >
-                <CheckCircle size={18} className="mr-2" />
-                {isChildMode ? "Create Story" : "Generate Routine"}
+                <CheckCircle size={18} className="mr-2 text-white" />
+                <span className="text-white">{isChildMode ? "Create Story" : "Generate Routine"}</span>
               </Button>
             )}
           </div>

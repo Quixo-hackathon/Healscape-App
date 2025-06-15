@@ -113,13 +113,13 @@ const RoutinePlayer = ({ isChildMode, detectedItem, onBack, onComplete }: Routin
             onClick={onBack}
             className="p-2 rounded-full hover:bg-white/50"
           >
-            <ArrowLeft size={20} className="text-healscape-text-primary" />
+            <ArrowLeft size={20} className="text-black" />
           </Button>
           <div className="text-center">
-            <h1 className="text-lg font-semibold text-healscape-text-primary">
+            <h1 className="text-lg font-semibold text-black">
               {isChildMode ? "Story Time" : "Routine Player"}
             </h1>
-            <p className="text-sm text-healscape-text-secondary">
+            <p className="text-sm text-black">
               Step {currentStep + 1} of {totalSteps}
             </p>
           </div>
@@ -128,7 +128,7 @@ const RoutinePlayer = ({ isChildMode, detectedItem, onBack, onComplete }: Routin
             onClick={() => setIsMuted(!isMuted)}
             className="p-2 rounded-full hover:bg-white/50"
           >
-            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            {isMuted ? <VolumeX size={20} className="text-black" /> : <Volume2 size={20} className="text-black" />}
           </Button>
         </div>
 
@@ -137,10 +137,10 @@ const RoutinePlayer = ({ isChildMode, detectedItem, onBack, onComplete }: Routin
             <div className="w-24 h-24 bg-gradient-to-br from-healscape-gray-light to-healscape-gray-medium rounded-3xl flex items-center justify-center text-4xl mb-4 mx-auto">
               {currentStepData.image}
             </div>
-            <h2 className="text-xl font-semibold text-healscape-text-primary mb-2">
+            <h2 className="text-xl font-semibold text-black mb-2">
               {currentStepData.title}
             </h2>
-            <p className="text-healscape-text-secondary leading-relaxed">
+            <p className="text-black leading-relaxed">
               {currentStepData.description}
             </p>
           </div>
@@ -148,7 +148,7 @@ const RoutinePlayer = ({ isChildMode, detectedItem, onBack, onComplete }: Routin
           <div className="space-y-4">
             <Progress 
               value={progress} 
-              className="w-full h-2"
+              className="w-full h-2 bg-transparent"
             />
             
             <div className="flex items-center justify-center gap-4">
@@ -156,17 +156,17 @@ const RoutinePlayer = ({ isChildMode, detectedItem, onBack, onComplete }: Routin
                 variant="outline"
                 size="lg"
                 onClick={handlePlayPause}
-                className="rounded-full w-16 h-16 border-2 border-healscape-teal"
+                className="rounded-full w-16 h-16 border-2 border-healscape-teal bg-black/10"
               >
-                {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+                {isPlaying ? <Pause size={24} className="text-black" /> : <Play size={24} className="text-black" />}
               </Button>
             </div>
 
             <div className="flex justify-between items-center">
-              <span className="text-sm text-healscape-text-secondary">
+              <span className="text-sm text-black">
                 {Math.floor(progress * currentStepData.duration / 100)}s
               </span>
-              <span className="text-sm text-healscape-text-secondary">
+              <span className="text-sm text-black">
                 {currentStepData.duration}s
               </span>
             </div>
@@ -177,26 +177,22 @@ const RoutinePlayer = ({ isChildMode, detectedItem, onBack, onComplete }: Routin
           <Button
             variant="outline"
             onClick={onBack}
-            className="flex-1 rounded-2xl py-3 border-healscape-gray-medium"
+            className="flex-1 rounded-2xl py-3 border-healscape-gray-medium bg-black/10 text-black"
           >
             Back
           </Button>
           <Button
             onClick={handleNext}
-            className={`flex-1 rounded-2xl py-3 font-medium ${
-              isChildMode 
-                ? "bg-healscape-coral hover:bg-healscape-coral/90" 
-                : "bg-healscape-teal hover:bg-healscape-teal/90"
-            }`}
+            className={`flex-1 rounded-2xl py-3 font-medium bg-black/10 hover:bg-black/20 text-black`}
           >
             {currentStep === totalSteps - 1 ? (
               <>
-                <CheckCircle size={18} className="mr-2" />
+                <CheckCircle size={18} className="mr-2 text-black" />
                 Complete
               </>
             ) : (
               <>
-                <SkipForward size={18} className="mr-2" />
+                <SkipForward size={18} className="mr-2 text-black" />
                 Next Step
               </>
             )}
