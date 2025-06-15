@@ -28,10 +28,14 @@ HealScape App is a smart health and wellness application that empowers individua
 
 ## 📱 Tech Stack
 
-- **Frontend:** React Native *(customizable)*
-- **Backend:** Node.js
-- **Database:** Supabase
+This project is built with:
 
+Vite
+TypeScript
+React
+shadcn-ui
+Tailwind CSS
+Supabase
 ---
 
 ## 🚀 Getting Started
